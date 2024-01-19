@@ -5,12 +5,11 @@
  * ascending order using the Bubble sort algorithm
  * @array: Array to be sorted
  * @size: the size of array
- * Return: 0
  */
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
-	int temp;
+	int tmp;
 
 	if (array == NULL  || size < 2)
 		return;
@@ -20,9 +19,9 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-				temp = array[j];
+				tmp = array[j];
 				array[j] = array[j + 1];
-				array[j + 1] = temp;
+				array[j + 1] = tmp;
 				print_array(array, size);
 			}
 		}
