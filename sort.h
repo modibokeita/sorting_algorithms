@@ -30,6 +30,15 @@ listint_t *swap_node(listint_t *node, listint_t **list);
 void swap(int *a, int *b);
 int lomuto_partition(int *array, int low, int high, size_t size);
 void quicksort_recursive(int *array, int low, int high, size_t size);
+void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
+void counting_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void sort_deck(deck_node_t **deck);
 /** print list*/
 void print_list(const listint_t *list);
 
