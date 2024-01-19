@@ -1,47 +1,41 @@
 #include "sort.h"
 /**
- * insertion_sort_list - sort a list
- * @list: UnSorted Linked list
+ * insertion_sort_list -  Sorts a doubly linked list
+ * @list: Pointer to the head
+ * of the doubly linked list
  */
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *node;
+	listint_t *current, *insertion_point;
 
-	if (list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	node = (*list)->next;
-	while (node)
+
+	current = (*list)->next;
+
+	while (current != NULL)
 	{
-		while ((node->prev) && (node->prev->n > node->n))
+		insertion_point = current->prev;
+
+		while ((insertion_point != NULL) && (insertion_point->n > current->n))
 		{
-			node = swap_node(node, list);
+			if (insertion_point->prev != NULL)
+				insertion_point->prev->next = current;
+			else
+				*list = current;
+			if (current->next != NULL)
+				current->next->prev = insertion_point;
+
+			insertion_point->next = current->next;
+			current->prev = insertion_point->prev;
+
+			insertion_point->prev = current;
+			current->next = insertion_point;
+
 			print_list(*list);
+			insertion_point = current->prev;
 		}
-		node = node->next;
+		current = current->next;
 	}
-}
-/**
- *swap_node - swap a node helper
- *@node: node
- *@list: node list
- *Return: return pointer of current node
- */
-
-listint_t *swap_node(listint_t *node, listint_t **list)
-{
-	listint_t *back = node->prev, *current = node;
-	/*NULL, 19, 48, 9, 71, 13, NULL*/
-
-	back->next = current->next;
-	if (current->next)
-		current->next->prev = back;
-	current->next = back;
-	current->prev = back->prev;
-	back->prev = current;
-	if (current->prev)
-		current->prev->next = current;
-	else
-		*list = current;
-	return (current);
 }
