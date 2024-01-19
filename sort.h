@@ -27,6 +27,9 @@ void quick_sort(int *array, size_t size);
 /** print array function*/
 void print_array(const int *array, size_t size);
 listint_t *swap_node(listint_t *node, listint_t **list);
+void swap(int *a, int *b);
+int lomuto_partition(int *array, int low, int high, size_t size);
+void quicksort_recursive(int *array, int low, int high, size_t size);
 /** print list*/
 void print_list(const listint_t *list);
 
