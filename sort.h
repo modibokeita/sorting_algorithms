@@ -26,7 +26,7 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 /** print array function*/
 void print_array(const int *array, size_t size);
-
+listint_t *swap_node(listint_t *node, listint_t **list);
 /** print list*/
 void print_list(const listint_t *list);
 
